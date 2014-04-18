@@ -40,5 +40,14 @@ class Month
     start_day = zeller(months_long_spelling, 1, @year)
   end
 
+  def header
+    "#{months_long_spelling} #{@year}".center(20)
+  end
+
+  def week_days
+    "Su Mo Tu We Th Fr Sa"
+  end
+
+
 end
 
