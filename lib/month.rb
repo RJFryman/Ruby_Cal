@@ -72,10 +72,41 @@ class Month
     week_array
   end
 
+  def week_numbers_year
+    week_number_array = ("01".."#{days_in_month}").to_a
+
+    week_number_array.each do |s|
+      s.gsub!(/0/, "\s") if s < "10"
+    end
+
+    start_day_index = %w[Sunday Monday Tuesday Wednsday Thursday Friday Saturday]
+    n = start_day_index.index(start_day)
+
+    n.times do
+      week_number_array.unshift "\s\s"
+    end
+    until week_number_array.length == 42
+      week_number_array.push "\s\s"
+    end
+
+    week_array = []
+    6.times do |w|
+      week_array << (week_number_array[w*7,7].join("\s"))
+    end
+    week_array
+  end
+
   def to_s
     body = "#{header}\n"
     body << "#{week_days}\n"
     body << "#{week_numbers.join("\n")}\n"
+  end
+
+  def year_conversion
+    body = []
+    body << "#{months_long_spelling}".center(20)
+    body << week_days
+    body.concat(week_numbers_year)
   end
 
 end
