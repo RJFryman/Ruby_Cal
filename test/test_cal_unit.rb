@@ -2,7 +2,7 @@ require 'nss'
 require 'zeller'
 require 'month'
 
-class LinkedListTest < MiniTest::Unit::TestCase
+class CalUnitTest < MiniTest::Unit::TestCase
 
   def test_01_test
     assert true
@@ -139,62 +139,62 @@ class LinkedListTest < MiniTest::Unit::TestCase
 
   def test_09a_header_calander_line
     cal = Month.new(1, 2014)
-    assert_equal("    January 2014    ", cal.header)
+    assert_equal("    January 2014", cal.header)
   end
 
   def test_09b_header_calander_line
     cal = Month.new(2, 2014)
-    assert_equal("   February 2014    ", cal.header)
+    assert_equal("   February 2014", cal.header)
   end
 
   def test_09c_header_calander_line
     cal = Month.new(3, 2014)
-    assert_equal("     March 2014     ", cal.header)
+    assert_equal("     March 2014", cal.header)
   end
 
   def test_09d_header_calander_line
     cal = Month.new(4, 2014)
-    assert_equal("     April 2014     ", cal.header)
+    assert_equal("     April 2014", cal.header)
   end
 
   def test_09e_header_calander_line
     cal = Month.new(5, 2014)
-    assert_equal("      May 2014      ", cal.header)
+    assert_equal("      May 2014", cal.header)
   end
 
   def test_09f_header_calander_line
     cal = Month.new(6, 2014)
-    assert_equal("     June 2014      ", cal.header)
+    assert_equal("     June 2014", cal.header)
   end
 
   def test_09g_header_calander_line
     cal = Month.new(7, 2014)
-    assert_equal("     July 2014      ", cal.header)
+    assert_equal("     July 2014", cal.header)
   end
 
   def test_09h_header_calander_line
     cal = Month.new(8, 2014)
-    assert_equal("    August 2014     ", cal.header)
+    assert_equal("    August 2014", cal.header)
   end
 
   def test_09i_header_calander_line
     cal = Month.new(9, 2014)
-    assert_equal("   September 2014   ", cal.header)
+    assert_equal("   September 2014", cal.header)
   end
 
   def test_09j_header_calander_line
     cal = Month.new(10, 2014)
-    assert_equal("    October 2014    ", cal.header)
+    assert_equal("    October 2014", cal.header)
   end
 
   def test_09k_header_calander_line
     cal = Month.new(11, 2014)
-    assert_equal("   November 2014    ", cal.header)
+    assert_equal("   November 2014", cal.header)
   end
 
   def test_09l_header_calander_line
     cal = Month.new(12, 2014)
-    assert_equal("   December 2014    ", cal.header)
+    assert_equal("   December 2014", cal.header)
   end
 
   def test_10a_zeller_cal_conversion
@@ -259,14 +259,14 @@ class LinkedListTest < MiniTest::Unit::TestCase
 
   def test_11_to_s
     cal = Month.new(1,2014)
-    assert_equal("    January 2014    
+    assert_equal("    January 2014
 Su Mo Tu We Th Fr Sa
           1  2  3  4
  5  6  7  8  9 10 11
 12 13 14 15 16 17 18
 19 20 21 22 23 24 25
-26 27 28 29 30 31   
-                    
+26 27 28 29 30 31
+
 ", cal.to_s)
   end
 

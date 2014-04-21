@@ -1,2 +1,12 @@
 #!/usr/bin/env ruby
 
+$LOAD_PATH << "lib"
+require "month"
+require "zeller"
+
+month = ARGV[0]
+year = ARGV[1]
+
+cal = Month.new(month.to_i, year.to_i)
+puts cal.to_s
+

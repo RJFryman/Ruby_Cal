@@ -41,7 +41,7 @@ class Month
   end
 
   def header
-    "#{months_long_spelling} #{@year}".center(20)
+    "#{months_long_spelling} #{@year}".center(20).rstrip
   end
 
   def week_days
@@ -67,7 +67,7 @@ class Month
 
     week_array = []
     6.times do |w|
-      week_array << (week_number_array[w*7,7].join("\s"))
+      week_array << (week_number_array[w*7,7].join("\s").rstrip)
     end
     week_array
   end
