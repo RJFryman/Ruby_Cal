@@ -27,4 +27,8 @@ class CalIntergrationTest < Test::Unit::TestCase
   def test_12h_cal_Intergration_month
     assert_equal(`cal 03 2015`, `./cal 3 2015`)
   end
+  def test_13_cal_intergration_year
+    skip
+    assert_equal(`cal 2013`, `./cal 2013`)
+  end
 end

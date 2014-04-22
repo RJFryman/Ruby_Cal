@@ -2,11 +2,17 @@
 
 $LOAD_PATH << "lib"
 require "month"
+require "year"
 require "zeller"
 
 month = ARGV[0]
 year = ARGV[1]
 
-cal = Month.new(month.to_i, year.to_i)
-puts cal.to_s
+if ARGV[1]
+  cal = Month.new(month.to_i, year.to_i)
+  puts cal.to_s
+else
+  year = Year.new(month.to_i)
+  puts year.to_s
+end
 
