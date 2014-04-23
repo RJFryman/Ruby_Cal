@@ -8,7 +8,18 @@ require "zeller"
 month = ARGV.first
 year = ARGV.last
 
+if 1800 > year.to_i or year.to_i > 3000
+  puts "Please enter a year from 1800 - 3000"
+  exit 64
+end
+
 if ARGV[1]
+
+  if 1 > month.to_i or month.to_i > 12
+    puts "Please enter a valid month 1 - 12"
+    exit 64
+  end
+
   cal = Month.new(month.to_i, year.to_i)
   puts cal.to_s
 else
