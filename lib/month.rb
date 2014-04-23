@@ -79,7 +79,7 @@ class Month
     body << "#{week_numbers_rstrip.join("\n")}\n"
   end
 
-  def year_conversion
+  def to_a
     body = []
     body << "#{months_long_spelling}".center(20)
     body << week_days

@@ -271,7 +271,7 @@ Su Mo Tu We Th Fr Sa
 ", cal.to_s)
   end
 
-  def test_12_year_conversion
+  def test_12_year_to_a
     cal = Month.new(1, 2014)
     assert_equal([
 "      January       ",
@@ -282,12 +282,7 @@ Su Mo Tu We Th Fr Sa
 "19 20 21 22 23 24 25",
 "26 27 28 29 30 31   ",
 "                    "
-], cal.year_conversion)
-  end
-
-  def test_13_year_banner
-    cal = Year.new(2014)
-    assert_equal("                             2014", cal.banner)
+], cal.to_a)
   end
 
   def test_15_year_to_s

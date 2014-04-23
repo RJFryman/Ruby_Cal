@@ -82,5 +82,4 @@ class CalIntergrationTest < Test::Unit::TestCase
     expected_output = unix_whitespace_eliminator `cal 1990`
     assert_equal(expected_output, `./cal 1990`)
   end
-
 end
