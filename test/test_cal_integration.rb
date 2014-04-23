@@ -16,17 +16,17 @@ class CalIntergrationTest < Test::Unit::TestCase
     assert_equal(64, $?.exitstatus)
   end
 
-  def test_12a_cal_intergration_month_error
+  def test_12b_cal_intergration_month_error
     shell_output = `./cal 13 1800`
     assert_equal(64, $?.exitstatus)
   end
 
-  def test_12a_cal_intergration_year_error
+  def test_12c_cal_intergration_year_error
     shell_output = `./cal 1 1799`
     assert_equal(64, $?.exitstatus)
   end
 
-  def test_12a_cal_intergration_year_error
+  def test_12d_cal_intergration_year_error
     shell_output = `./cal 1 3001`
     assert_equal(64, $?.exitstatus)
   end
