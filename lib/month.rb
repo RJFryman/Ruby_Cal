@@ -7,7 +7,34 @@ class Month
     @year = year
   end
 
-  def is_leap_year?
+  def length
+    case @month
+    when 1,3,5,7,8,10,12
+      31
+    when 2
+      leap_year? ? 29 :28
+    else
+      30
+    end
+  end
+
+  def to_s
+    body = "#{header}\n"
+    body << "#{week_days}\n"
+    week_numbers_rstrip = week_numbers.collect{ |w| w.rstrip}
+    body << "#{week_numbers_rstrip.join("\n")}\n"
+  end
+
+  def to_a
+    body = []
+    body << "#{month_name}".center(20)
+    body << week_days
+    body.concat(week_numbers)
+  end
+
+  private
+
+  def leap_year?
     if (@year % 400 == 0)
       true
     elsif (@year % 100 == 0)
@@ -19,29 +46,17 @@ class Month
     end
   end
 
-  def months_long_spelling
+  def month_name
     month_names= %w(January February March April May June July August September October November December)
     month_names[@month-1]
   end
 
-
-  def days_in_month
-    case @month
-    when 1,3,5,7,8,10,12
-      31
-    when 2
-      is_leap_year? ? 29 :28
-    else
-      30
-    end
-  end
-
   def start_day
-    start_day = zeller(months_long_spelling, 1, @year)
+    start_day = zeller(month_name, 1, @year)
   end
 
   def header
-    "#{months_long_spelling} #{@year}".center(20).rstrip
+    "#{month_name} #{@year}".center(20).rstrip
   end
 
   def week_days
@@ -49,7 +64,7 @@ class Month
   end
 
   def week_numbers
-    week_number_array = ("01".."#{days_in_month}").to_a
+    week_number_array = ("01".."#{length}").to_a
 
     week_number_array.each do |s|
       s.gsub!(/0/, "\s") if s < "10"
@@ -71,20 +86,5 @@ class Month
     end
     week_array
   end
-
-  def to_s
-    body = "#{header}\n"
-    body << "#{week_days}\n"
-    week_numbers_rstrip = week_numbers.collect{ |w| w.rstrip}
-    body << "#{week_numbers_rstrip.join("\n")}\n"
-  end
-
-  def to_a
-    body = []
-    body << "#{months_long_spelling}".center(20)
-    body << week_days
-    body.concat(week_numbers)
-  end
-
 end
 

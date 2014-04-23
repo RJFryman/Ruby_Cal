@@ -5,10 +5,6 @@ require 'year'
 
 class CalUnitTest < MiniTest::Unit::TestCase
 
-  def test_01_test
-    assert true
-  end
-
   def test_02a_zeller_day_start_day
     day = zeller("January",1,1800)
     assert_equal "Wednsday", day
@@ -78,184 +74,24 @@ class CalUnitTest < MiniTest::Unit::TestCase
     assert_equal "Saturday", day
   end
 
-  def test_03_month_takes_month
-    cal = Month.new(11, 1990)
-    assert_equal(11, cal.month)
-  end
-
-  def test_04_month_takes_year
-    cal = Month.new(11, 1990)
-    assert_equal(1990, cal.year)
-  end
-
-  def test_05_month_can_convert_number_to_long_name_month
-    cal = Month.new(11, 1990)
-    assert_equal("November", cal.months_long_spelling)
-  end
-
-  def test_06a_month_determins_if_leap_year?
-    cal = Month.new(2, 2000)
-    assert_equal(true, cal.is_leap_year?)
-  end
-
-  def test_06b_month_determins_if_leap_year?
-    cal = Month.new(2, 1900)
-    assert_equal(false, cal.is_leap_year?)
-  end
-
-  def test_06c_month_determins_if_leap_year?
-    cal = Month.new(2, 2012)
-    assert_equal(true, cal.is_leap_year?)
-  end
-
-  def test_06d_month_determins_if_leap_year?
-    cal = Month.new(2, 2013)
-    assert_equal(false, cal.is_leap_year?)
-  end
-
   def test_07a_month_how_many_days_in_month
-    cal = Month.new(1, 2014)
-    assert_equal(31, cal.days_in_month)
+    month = Month.new(1, 2014)
+    assert_equal(31, month.length)
   end
 
   def test_07b_month_how_many_days_in_month
-    cal = Month.new(2, 2014)
-    assert_equal(28, cal.days_in_month)
+    month = Month.new(2, 2014)
+    assert_equal(28, month.length)
   end
 
   def test_07c_month_how_many_days_in_month
-    cal = Month.new(2, 2012)
-    assert_equal(29, cal.days_in_month)
+    month = Month.new(2, 2012)
+    assert_equal(29, month.length)
   end
 
   def test_07d_month_how_many_days_in_month
-    cal = Month.new(4, 2014)
-    assert_equal(30, cal.days_in_month)
-  end
-
-  def test_08_week_days_line
-    cal = Month.new(5, 2014)
-    assert_equal("Su Mo Tu We Th Fr Sa", cal.week_days)
-  end
-
-  def test_09a_header_calander_line
-    cal = Month.new(1, 2014)
-    assert_equal("    January 2014", cal.header)
-  end
-
-  def test_09b_header_calander_line
-    cal = Month.new(2, 2014)
-    assert_equal("   February 2014", cal.header)
-  end
-
-  def test_09c_header_calander_line
-    cal = Month.new(3, 2014)
-    assert_equal("     March 2014", cal.header)
-  end
-
-  def test_09d_header_calander_line
-    cal = Month.new(4, 2014)
-    assert_equal("     April 2014", cal.header)
-  end
-
-  def test_09e_header_calander_line
-    cal = Month.new(5, 2014)
-    assert_equal("      May 2014", cal.header)
-  end
-
-  def test_09f_header_calander_line
-    cal = Month.new(6, 2014)
-    assert_equal("     June 2014", cal.header)
-  end
-
-  def test_09g_header_calander_line
-    cal = Month.new(7, 2014)
-    assert_equal("     July 2014", cal.header)
-  end
-
-  def test_09h_header_calander_line
-    cal = Month.new(8, 2014)
-    assert_equal("    August 2014", cal.header)
-  end
-
-  def test_09i_header_calander_line
-    cal = Month.new(9, 2014)
-    assert_equal("   September 2014", cal.header)
-  end
-
-  def test_09j_header_calander_line
-    cal = Month.new(10, 2014)
-    assert_equal("    October 2014", cal.header)
-  end
-
-  def test_09k_header_calander_line
-    cal = Month.new(11, 2014)
-    assert_equal("   November 2014", cal.header)
-  end
-
-  def test_09l_header_calander_line
-    cal = Month.new(12, 2014)
-    assert_equal("   December 2014", cal.header)
-  end
-
-  def test_10a_zeller_cal_conversion
-    cal = Month.new(1, 2014)
-    assert_equal("Wednsday", cal.start_day)
-  end
-
-  def test_10b_zeller_cal_conversion
-    cal = Month.new(2, 2014)
-    assert_equal("Saturday", cal.start_day)
-  end
-
-  def test_10c_zeller_cal_conversion
-    cal = Month.new(3, 2014)
-    assert_equal("Saturday", cal.start_day)
-  end
-
-  def test_10d_zeller_cal_conversion
-    cal = Month.new(4, 2014)
-    assert_equal("Tuesday", cal.start_day)
-  end
-
-  def test_10e_zeller_cal_conversion
-    cal = Month.new(5, 2014)
-    assert_equal("Thursday", cal.start_day)
-  end
-
-  def test_10f_zeller_cal_conversion
-    cal = Month.new(6, 2014)
-    assert_equal("Sunday", cal.start_day)
-  end
-
-  def test_10g_zeller_cal_conversion
-    cal = Month.new(7, 2014)
-    assert_equal("Tuesday", cal.start_day)
-  end
-
-  def test_10h_zeller_cal_conversion
-    cal = Month.new(8, 2014)
-    assert_equal("Friday", cal.start_day)
-  end
-
-  def test_10i_zeller_cal_conversion
-    cal = Month.new(9, 2014)
-    assert_equal("Monday", cal.start_day)
-  end
-
-  def test_10j_zeller_cal_conversion
-    cal = Month.new(10, 2014)
-    assert_equal("Wednsday", cal.start_day)
-  end
-
-  def test_10k_zeller_cal_conversion
-    cal = Month.new(11, 2014)
-    assert_equal("Saturday", cal.start_day)
-  end
-
-  def test_10l_zeller_cal_conversion
-    cal = Month.new(12, 2014)
-    assert_equal("Monday", cal.start_day)
+    month = Month.new(4, 2014)
+    assert_equal(30, month.length)
   end
 
   def test_11_to_s
