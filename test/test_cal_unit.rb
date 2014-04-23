@@ -1,4 +1,4 @@
-require 'nss'
+require 'test/unit'
 require 'zeller'
 require 'month'
 require 'year'
