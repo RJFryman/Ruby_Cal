@@ -1,8 +1,8 @@
 NSS-Cal
 ================
 
-This is an Exersice given in week 2
-
+[![Build Status](https://travis-ci.org/RJFryman/Ruby_Cal.svg)](https://travis-ci.org/RJFryman/Ruby_Cal)
+[![Code Climate](https://codeclimate.com/github/RJFryman/Ruby_Cal/badges/gpa.svg)](https://codeclimate.com/github/RJFryman/Ruby_Cal)
 
 Objectives
 ==========

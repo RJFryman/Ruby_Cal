@@ -1,3 +1,4 @@
 language: ruby
 rvm:
-  - 2.1.1
+  - 1.9.3
+script: $ CODECLIMATE_REPO_TOKEN=c9414b792192cf3a44a39fadd32bd276e43e48a642bc3517947e5b92fe3cedaa exec rake
